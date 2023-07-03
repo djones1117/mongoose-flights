@@ -1,4 +1,4 @@
-const FlightModel = require('../models/movie');
+const FlightModel = require('../models/flight');
 
 module.exports = {
     create

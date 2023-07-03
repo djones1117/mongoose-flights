@@ -40,16 +40,17 @@ const flightSchema = new mongoose.Schema({
         max: 9999,
      },
      reviews: [reviewSchema],
-     nowFlying: { type: Boolean, default: true }
+     nowFlying: { type: Boolean, default: true },
     departs: {
         type: Number,
         default: function() {
             return new Date().getFullYear();
           },
           min: 2022
-        }, {
+        }, 
+      }, {
            timestamps: true 
-        }
+        
 });
 
 // Compile the schema into a model and export it
