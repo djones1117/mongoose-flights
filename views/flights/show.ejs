@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Airport: </div>
+  <div><%= flight.airport %></div>
+  <div>departs: </div>
+  <div><%= flight.departs %></div>
+  <div>airline: </div>
+  <div><%= flight.airline %></div>
+  <div>Flight Number: </div>
+  <div><%= flight.flightNo.join(', ') %></div>
+  <div>Now Flying: </div>
+  <div><%= flight.nowflying ? 'Yes' : 'Nope' %></div>
+</section>
