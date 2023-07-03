@@ -18,7 +18,16 @@ const flightSchema = new Schema({
         max: 9999,
      },
     departs: {
-        type: Date,
-    }, 
+        type: Number,
+        default: function() {
+            return new Date().getFullYear();
+          },
+          min: 2022
+        }, {
+           timestamps: true 
+        }
 });
+
+// Compile the schema into a model and export it
+module.exports = mongoose.model('Movie', movieSchema);
 
