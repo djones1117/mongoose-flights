@@ -17,6 +17,7 @@ const flightSchema = new Schema({
         min: 10,
         max: 9999,
      },
+     nowFlying: { type: Boolean, default: true }
     departs: {
         type: Number,
         default: function() {
