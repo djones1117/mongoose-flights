@@ -2,7 +2,29 @@ const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
-const flightSchema = new Schema({
+
+const reviewSchema = new Schema({
+  content: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: 5
+  }
+}, {
+  timestamps: true
+});
+
+
+
+
+
+
+
+const flightSchema = new mongoose.Schema({
     airline: {
         type: String,
      enum: ['Delta', 'American', 'Southwest']
@@ -17,6 +39,7 @@ const flightSchema = new Schema({
         min: 10,
         max: 9999,
      },
+     reviews: [reviewSchema],
      nowFlying: { type: Boolean, default: true }
     departs: {
         type: Number,
@@ -30,5 +53,5 @@ const flightSchema = new Schema({
 });
 
 // Compile the schema into a model and export it
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Flight', flightSchema);
 

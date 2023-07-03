@@ -9,4 +9,10 @@ router.get('/', flightsCtrl.index);
 //get /movies/new
 router.get('/new', flightsCtrl.new);
 
+// GET /flights/:id (show functionality) MUST be below new route
+router.get('/:id', flightsCtrl.show);
+// POST /movies
+router.post('/', flightsCtrl.create);
+	
+
 module.exports = router;
