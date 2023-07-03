@@ -11,7 +11,7 @@ module.exports = {
 async function index(req, res) {
     const flights = await FlightModel.find({});
     console.log(flights)
-    res.render('flights/index', { title: 'All Flights', flights:flight });
+    res.render('flights/index', { title: 'All Flights', flights:flights });
   
 }
 
@@ -31,11 +31,11 @@ function newFlight(req, res) {
 
 
   async function create(req, res) {
-    // convert nowFlying's checkbox of nothing or "on" to boolean
+    
     req.body.nowFlying = !!req.body.nowFlying;
-    // remove any whitespace at start and end of cast
+ 
     req.body.airline = req.body.airline.trim();
-    // split cast into an array if it's not an empty string - using a regular expression as a separator
+    
     if (req.body.airline) req.body.airline = req.body.airline.split(/\s*,\s*/);
     // Remove empty properties so that defaults will be applied
     for (let key in req.body) {
@@ -46,15 +46,14 @@ function newFlight(req, res) {
 
 
 
-  const flightFromTheDatabase =  await FlightModel.create(req.body);// the await is waiting for the FlightModel to go to MongoDB ATLAS (our db) a
-    //and put the contents form in the db, and come to the express server
+  const flightFromTheDatabase =  await FlightModel.create(req.body);
+    
 
     // if you want to see what you put in the database on your server
     console.log(flightFromTheDatabase)
 
 
-       // Always redirect after CUDing data
-    // We'll refactor to redirect to the movies index after we implement it
+   
     res.redirect('/flights');  // Update this line
   } catch (err) {
     // Typically some sort of validation error
