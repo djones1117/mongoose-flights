@@ -8,7 +8,7 @@
   <div>airline: </div>
   <div><%= flight.airline %></div>
   <div>Flight Number: </div>
-  <div><%= flight.flightNo.join(', ') %></div>
+  <div><%= flight.flightNo %></div>
   <div>Now Flying: </div>
   <div><%= flight.nowflying ? 'Yes' : 'Nope' %></div>
 </section>
@@ -21,9 +21,9 @@
   <textarea name="content"></textarea>
   <label>Airport:</label>
   <select name="Airport">
-    <option value="DFW">3</option>
-    <option value="SAN">4</option>
-    <option value="AUS" selected>5</option>
+    <option value="DFW">DFW</option>
+    <option value="SAN">SAN</option>
+    <option value="AUS" selected>AUS</option>
   </select>
   <input type="submit" value="Add Arrival">
 </form>

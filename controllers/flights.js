@@ -31,19 +31,19 @@ function newFlight(req, res) {
 
 
   async function create(req, res) {
-    
+    console.log("req.body", req.body)
     req.body.nowFlying = !!req.body.nowFlying;
  
     req.body.airline = req.body.airline.trim();
     
-    if (req.body.airline) req.body.airline = req.body.airline.split(/\s*,\s*/);
+    //if (req.body.airline) req.body.airline = req.body.airline.split(/\s*,\s*/);
     // Remove empty properties so that defaults will be applied
     for (let key in req.body) {
       if (req.body[key] === '') delete req.body[key];
     }
     try {
 
-
+console.log('--')
 
 
   const flightFromTheDatabase =  await FlightModel.create(req.body);
@@ -54,7 +54,7 @@ function newFlight(req, res) {
 
 
    
-    res.redirect(`/flights${flightFromTheDatabase._id}`);  // Update this line
+    res.redirect(`/flights/${flightFromTheDatabase._id}`);  // Update this line
   } catch (err) {
     // Typically some sort of validation error
     console.log(err);
