@@ -15,7 +15,7 @@ async function create(req, res){
 		
 		
 		
-		flightFromTheDatabase.reviews.push(req.body);
+		flightFromTheDatabase.destinations.push(req.body);
 		
 		await flightFromTheDatabase.save();
 		

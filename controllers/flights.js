@@ -25,7 +25,7 @@ async function show(req, res) {
 function newFlight(req, res) {
     // We'll want to be able to render an  
     // errorMsg if the create action fails
-    res.render('flights/new', { airline: 'Add Airline', errorMsg: '' });
+    res.render('flights/new', { title: 'Add Airline', errorMsg: '' });
   }
 
 
@@ -54,7 +54,7 @@ function newFlight(req, res) {
 
 
    
-    res.redirect('/flights');  // Update this line
+    res.redirect(`/flights${flightFromTheDatabase._id}`);  // Update this line
   } catch (err) {
     // Typically some sort of validation error
     console.log(err);

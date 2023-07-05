@@ -3,16 +3,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const reviewSchema = new Schema({
-  content: {
+const destinationSchema = new Schema({
+  airport: {
     type: String,
-    required: true
+    enum: ['AUS', 'DFW', 'SAN']
   },
-  rating: {
+  arrival: {
     type: Number,
-    min: 1,
-    max: 5,
-    default: 5
+    default: function() {
+      return new Date().getFullYear();
+    },
+    min: 1927
   }
 }, {
   timestamps: true
@@ -39,7 +40,7 @@ const flightSchema = new mongoose.Schema({
         min: 10,
         max: 9999,
      },
-     reviews: [reviewSchema],
+     destinations: [destinationSchema],
      nowFlying: { type: Boolean, default: true },
     departs: {
         type: Number,
