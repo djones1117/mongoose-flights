@@ -14,16 +14,16 @@
 </section>
 
 <!-- new markup below -->
-<br><br><h2>Departs</h2>
+<br><br><h2>destinations</h2>
 <form id="add-depart-form" method="POST"
   action="/flights/<%= flight._id %>/destinations">
-  <label>Depart:</label>
+  <label>arrival:</label>
   <input type="date" name="depart">
-  <label>Airport:</label>
+  <label>airports:</label>
   <select name="Airport">
     <option value="DFW">DFW</option>
     <option value="SAN">SAN</option>
-    <option value="AUS" selected>AUS</option>
+    <option value="AUS">AUS</option>
   </select>
   <input type="submit" value="Add Arrival">
 </form>
@@ -38,11 +38,11 @@
       </tr>
     </thead>
     <tbody>
-      <% flight.destinations.forEach(function(r) { %>
+      <% flight.destinations.forEach(function(f) { %>
         <tr>
-       
-          <td><%= r.depart %></td>
-          <td><%= r.airport %></td>
+         <td><%= f.createdAt.toLocaleDateString() %></td> 
+          <td><%= f.airports %></td>
+          <td><%= f.arrival %></td>
         </tr>
       <% }); %>
     </tbody>
