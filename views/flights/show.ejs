@@ -39,9 +39,9 @@
     </thead>
     <tbody>
       <% flight.destinations.forEach(function(f) { %>
-        <tr>
+        <tr> 
          <td><%= f.createdAt.toLocaleDateString() %></td> 
-          <td><%= f.airports %></td>
+          <td><%= f.Airport %></td>
           <td><%= f.arrival %></td>
         </tr>
       <% }); %>
